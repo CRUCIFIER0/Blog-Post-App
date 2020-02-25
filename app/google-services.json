@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "698321001085",
+    "firebase_url": "https://sapp-12e83.firebaseio.com",
+    "project_id": "sapp-12e83",
+    "storage_bucket": "sapp-12e83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:698321001085:android:766488c1d09d4585d1ef14",
+        "android_client_info": {
+          "package_name": "com.example.sapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "698321001085-t754f74464els8fe3rt29pld78p820gb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDh2dJjVDEySwA1q5XcZwFRpdplhK6TPt4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "698321001085-t754f74464els8fe3rt29pld78p820gb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
