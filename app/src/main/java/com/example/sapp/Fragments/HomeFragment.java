@@ -4,13 +4,26 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.sapp.Adapters.PostAdapter;
+import com.example.sapp.Models.Post;
 import com.example.sapp.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,6 +44,13 @@ public class HomeFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+
+    RecyclerView postrecyclerView;
+    PostAdapter postAdapter;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+    List<Post> postList;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -67,7 +87,38 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View fragmentedView= inflater.inflate(R.layout.fragment_home, container, false);
+        postrecyclerView= fragmentedView.findViewById(R.id.PostRV);
+        postrecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        postrecyclerView.setHasFixedSize(true);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("Posts");
+        return fragmentedView;
+    }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                postList=  new ArrayList<>();
+                for(DataSnapshot postsnap: dataSnapshot.getChildren()){
+                    Post post = postsnap.getValue(Post.class);
+                    postList.add(post);
+                }
+
+                postAdapter = new PostAdapter(getActivity(), postList);
+                postrecyclerView.setAdapter(postAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event

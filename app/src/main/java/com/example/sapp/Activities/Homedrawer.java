@@ -96,6 +96,9 @@ public class Homedrawer extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         updateNavHeader();
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
+
     }
 
     private void setupPopupImageClick() {
