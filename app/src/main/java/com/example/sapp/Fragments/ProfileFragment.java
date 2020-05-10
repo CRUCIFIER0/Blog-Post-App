@@ -9,8 +9,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.sapp.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,6 +37,13 @@ public class ProfileFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    ImageView imageView;
+    TextView t1;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser firebaseUser;
+    FirebaseDatabase firebaseDatabase;
+    FirebaseUser currentUser;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -67,7 +80,21 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        View fragmentedView1= inflater.inflate(R.layout.fragment_profile, container, false);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+//        String uname = firebaseUser.getDisplayName();
+//        String uimg = firebaseUser.getPhotoUrl().toString();
+//        t1 = fragmentedView1.findViewById(R.id.t1);
+
+        return fragmentedView1;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        imageView= getActivity().findViewById(R.id.nav_user_photo);
+        Glide.with(this).load(currentUser.getPhotoUrl()).into(imageView);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -76,6 +103,8 @@ public class ProfileFragment extends Fragment {
             mListener.onFragmentInteraction(uri);
         }
     }
+
+
 
     @Override
     public void onAttach(Context context) {

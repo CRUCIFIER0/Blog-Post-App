@@ -8,6 +8,9 @@
     <color name="light_gray">#E8EBEC</color>
     <color name="red">#F23B5F</color>
     <color name="white">#FFFFFF</color>
+    <color name="graylight">#fafafa</color>
+    <color name="startblue">#09c6df</color>
+    <color name="endblue">#0bcce6</color>
 
 
 </resources>

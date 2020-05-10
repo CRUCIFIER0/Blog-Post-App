@@ -98,6 +98,7 @@ public class Homedrawer extends AppCompatActivity
         updateNavHeader();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
 
     }
 

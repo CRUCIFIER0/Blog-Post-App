@@ -1,6 +1,7 @@
 package com.example.sapp.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.sapp.Activities.PostDetailActivity;
 import com.example.sapp.Models.Post;
 import com.example.sapp.R;
 
@@ -65,6 +67,25 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
             title= itemView.findViewById(R.id.row_post_title);
             imgPost = itemView.findViewById(R.id.row_post_img);
             imgpostprofile= itemView.findViewById(R.id.row_post_profile_img);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent postDetailActivity = new Intent(mContext, PostDetailActivity.class);
+                    int position=  getAdapterPosition();
+                    postDetailActivity.putExtra("title",mData.get(position).getTitle());
+                    postDetailActivity.putExtra("postImage",mData.get(position).getPicture());
+                    postDetailActivity.putExtra("description",mData.get(position).getDescription());
+                    postDetailActivity.putExtra("postKey",mData.get(position).getPostKey());
+                    postDetailActivity.putExtra("title",mData.get(position).getTitle());
+                    postDetailActivity.putExtra("userPhoto",mData.get(position).getUserPhoto());
+                    //postDetailActivity.putExtra("userName",mData.get(position).getUsername());
+                    long timestamp = (long)mData.get(position).getTimeStamp();
+                    postDetailActivity.putExtra("postDate",timestamp);
+                    mContext.startActivity(postDetailActivity);
+
+                }
+            });
         }
     }
 }
