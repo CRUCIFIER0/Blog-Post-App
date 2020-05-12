@@ -1,6 +1,6 @@
 # Blog App
 > This is just a basic blooging application which can authenticate users and add posts and add comments to each post.
-> You read more of about this project at the medium page 
+> You read more of about this project at the medium page <br>
 > https://medium.com/@allakatej/building-a-blog-app-or-a-tiny-social-media-platform-with-andriod-studio-and-firebase-e9a5597e3e2c
 
 #Requirements
