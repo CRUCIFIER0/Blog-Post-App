@@ -2,6 +2,7 @@ package com.example.sapp.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -122,7 +123,9 @@ public class PostDetailActivity extends AppCompatActivity {
     }
 
     private void iniRvComment() {
-        DatabaseReference commentRef =firebaseDatabase.getReference("Comments").child(PostKey);
+
+        RvComment.setLayoutManager(new LinearLayoutManager(this));
+        DatabaseReference commentRef =firebaseDatabase.getReference(COMMENT_KEY).child(PostKey);
         commentRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

@@ -35,15 +35,10 @@ public class ProfileFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    int imgc=R.drawable.dog;
 
     private OnFragmentInteractionListener mListener;
 
-    ImageView imageView;
-    TextView t1;
-    FirebaseAuth firebaseAuth;
-    FirebaseUser firebaseUser;
-    FirebaseDatabase firebaseDatabase;
-    FirebaseUser currentUser;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -70,6 +65,9 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //setContentView(R.layout.fragment_profile);
+
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -81,8 +79,10 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View fragmentedView1= inflater.inflate(R.layout.fragment_profile, container, false);
-        firebaseDatabase = FirebaseDatabase.getInstance();
-//        String uname = firebaseUser.getDisplayName();
+        ImageView img = fragmentedView1.findViewById(R.id.imageView);
+        //ImageView img = (ImageView) getView().findViewById(R.id.imageView);
+        img.setImageResource(R.drawable.dog);
+          //String uname = firebaseUser.getDisplayName();
 //        String uimg = firebaseUser.getPhotoUrl().toString();
 //        t1 = fragmentedView1.findViewById(R.id.t1);
 
@@ -93,8 +93,6 @@ public class ProfileFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        imageView= getActivity().findViewById(R.id.nav_user_photo);
-        Glide.with(this).load(currentUser.getPhotoUrl()).into(imageView);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -18,11 +18,11 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="45dp"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                tools:src="@tools:sample/avatars[0]" />
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="45dp"
+                tools:srcCompat="@drawable/dog" />
 
             <TextView
                 android:id="@+id/username"
@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:text="Wiliam Snoe"
+                android:text="Rahul Allaka"
                 android:textColor="#fff"
                 android:textSize="21sp"
                 android:textStyle="bold" />
@@ -65,7 +65,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="10dp"
-                        android:text="125"
+                        android:text="7"
                         android:textColor="@color/startblue"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -89,7 +89,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="10dp"
-                        android:text="1205"
+                        android:text="13"
                         android:textColor="@color/startblue"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -113,7 +113,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="10dp"
-                        android:text="360"
+                        android:text="5"
                         android:textColor="@color/startblue"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -139,13 +139,14 @@
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:src="@drawable/ic_email_black_24dp"/>
+
             <TextView
-                android:textStyle="bold"
-                android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:paddingLeft="20dp"
-                android:text="Wiliam@gmail.com"/>
+                android:text="rallaka@gmail.com"
+                android:textStyle="bold" />
         </LinearLayout>
         <LinearLayout
             android:layout_marginTop="25dp"
@@ -157,14 +158,15 @@
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:src="@drawable/ic_phone_android_black_24dp"/>
-            <TextView
-                android:textStyle="bold"
 
-                android:layout_gravity="center_vertical"
+            <TextView
                 android:layout_width="wrap_content"
+
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:paddingLeft="20dp"
-                android:text="+266 225 225"/>
+                android:text="+91 7483952945"
+                android:textStyle="bold" />
         </LinearLayout>
         <LinearLayout
             android:layout_marginTop="25dp"
